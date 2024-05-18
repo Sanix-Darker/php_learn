@@ -1,6 +1,9 @@
 ## DATA TYPES
 
 ```php
+// constants
+define("EXAMPLE_CONSTANT", 12);
+
 // Variables and data types :
 
 $str = "Hello";

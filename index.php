@@ -1,4 +1,7 @@
 <?php
+
+define("EXAMPLE_CONSTANT", 12);
+
     // this is a test comment
     /* $varx = "sanix"; */
     /* $some_bool = true; */
@@ -29,4 +32,5 @@ $hash_map = array(
 );
 print_r($hash_map);
 
+print_r(EXAMPLE_CONSTANT);
 ?>
