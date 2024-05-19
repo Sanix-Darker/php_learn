@@ -82,12 +82,15 @@ echo ($content_radian > 10) ? "is upper than 10" : "is lower than 10";
 
 ## SESSION VARIABLES
 
-Session variables :
+Global Session variables :
 
 - `$_GET`: all query params.
 - `$_POST`: all POST form params.
 - `$_REQUEST`: both.
 - `$_SESSION`: session params but needed a `session_start` to be initiated.
+- `$_COOKIES`: cookies values.
+- `$_SERVER`: entries created by the webserver.
+
 
 ## LOOP
 
@@ -180,6 +183,9 @@ echo "{$user} owned me \${$amount}";
 
 ```php
 <?
+// to include a page to another one
+include("this.php");
+
 # or // can be used to define comments
 
 # size of a string var
@@ -226,5 +232,13 @@ $foods = $_POST["foods"];
 foreach ($foods as $food){
     echo ">>".$food;
 }
-?>
+
+// cookies
+setcookie("key", "value", time() + (100), "/path");
+setcookie("this", "that", time() + 100, "/path/to");
+// those are stored in $_COOKIES;
+// as assotciative array.
+
+// session
+// same principle for $_SESSION["values"]
 ```
