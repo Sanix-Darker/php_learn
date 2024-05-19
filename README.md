@@ -1,3 +1,5 @@
+## PHP LEARN
+
 ## DATA TYPES
 
 ```php
@@ -54,6 +56,14 @@ switch (strlen(name_r)) {
 echo ($content_radian > 10) ? "is upper than 10" : "is lower than 10";
 ```
 
+## SESSION VARIABLES
+
+Session variables :
+
+- `$_REQUEST`:
+- `$_GET`:
+- `$_POST`:
+
 ## LOOP
 
 - foreach
@@ -95,11 +105,27 @@ for ($i = 0; $i < 10 &i ++;){
 
 ```php
 user="dk";
-echo "${user} is connected !";
+echo "{$user} is connected !";
+
+$amount = 20.23;
+// we can also escape characters.
+echo "{$user} owned me \${$amount}";
 ```
 
 ## EXTRAS
 
 ```php
+# or // can be used to define comments
+
+# size of a string var
 strlen(var); // to get size of a string
+
+# pass a callback to a method (with default params)
+function print_it($callback, $args=array()){
+    $callback($args);
+}
+print_it(
+    'print_r', # to pass a callback, it should be defined in params as string.
+    array("_GET: " => $_GET),
+);
 ```
