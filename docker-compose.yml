@@ -3,6 +3,8 @@ version: '3.9'
 services:
 
   web:
+    # This is so cool, it hides the apache service running along side with php itself.
+    # exactly like this one : https://hub.docker.com/r/webdevops/php-nginx
     image: php:8.2-apache
     ports:
       - "82:80"

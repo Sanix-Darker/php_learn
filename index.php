@@ -1,3 +1,5 @@
+<h2> HELLO BONGO !!! </h2>
+<hr/>
 <?php
 // constant
 define("EXAMPLE_CONSTANT", 12);
