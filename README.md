@@ -5,6 +5,7 @@ Yeah... each statement need to end with a comma ";".... BOOOOO.
 ## DATA TYPES
 
 ```php
+<?php
 // constants
 define("EXAMPLE_CONSTANT", 12);
 
@@ -41,6 +42,7 @@ array_keys($hash_map);
 array_values($hash_map);
 // we can flip keys and values too:
 $new_flipped_hashmap_arr = array_flip($hash_map);
+?>
 ```
 
 ## CONDITIONS
@@ -48,6 +50,7 @@ $new_flipped_hashmap_arr = array_flip($hash_map);
 - if / else:
 
 ```php
+<?
 if ($user == "this" AND $pass == "xxx") { // AND (&&) | OR (||)
     echo "this";
  }else{
@@ -58,6 +61,7 @@ if ($user == "this" AND $pass == "xxx") { // AND (&&) | OR (||)
 - switch /case:
 
 ```php
+<?
 const name_r = "Hlllo";
 switch (strlen(name_r)) {
     case 5:
@@ -72,6 +76,7 @@ switch (strlen(name_r)) {
 - ternary:
 
 ```php
+<?
 echo ($content_radian > 10) ? "is upper than 10" : "is lower than 10";
 ```
 
@@ -88,6 +93,7 @@ Session variables :
 
 - foreach
 ```php
+<?
 $items = ['this', 10, 'that']; // array('', ...) works too
 
 foreach ($items as $item){
@@ -97,6 +103,7 @@ foreach ($items as $item){
 - while
 
 ```php
+<?
 $i = 0;
 while($i < 10){
     // do something
@@ -107,6 +114,7 @@ while($i < 10){
 
 - do/while (execute first before checking the condition).
 ```php
+<?
 $i = 0;
 do {
     echo "--{$i}";
@@ -116,6 +124,7 @@ do {
 
 - for
 ```php
+<?
 for ($i = 0; $i < 10 &i ++;){
     echo $i;
 }
@@ -123,6 +132,7 @@ for ($i = 0; $i < 10 &i ++;){
 ## BUILTIN FN
 
 ```php
+<?
 rand(1, 100); # for random value in that range
 # The list below is pretty obvious i guess...
 
@@ -138,11 +148,15 @@ min(23, 4, 1, 55);
 
 pi(23, 4, 1, 55);
 
+# more practical
+isset() // true if var declared and not null
+empty() // true if not declared or false or null or ""
 ```
 
 ## FORMATING
 
 ```php
+<?
 user="dk";
 echo "{$user} is connected !";
 
@@ -154,6 +168,7 @@ echo "{$user} owned me \${$amount}";
 ## EXTRAS
 
 ```php
+<?php
 # or // can be used to define comments
 
 # size of a string var
@@ -167,4 +182,22 @@ print_it(
     'print_r', # to pass a callback, it should be defined in params as string.
     array("_GET: " => $_GET),
 );
+
+# to deal with checkboxes in php, we need to set the same var that will
+# be identify as an array in the backend side.
+?>
+<form action="index.php" method="post">
+    <input type="checkbox" name="foods[]" />
+    <input type="checkbox" name="foods[]" />
+    <input type="checkbox" name="foods[]" />
+    <input type="checkbox" name="foods[]" />
+</form>
+<!-- in the php side -->
+<?php
+$foods = $_POST["foods"];
+# then loop on it
+foreach ($foods as $food){
+    echo ">>".$food;
+}
+?>
 ```
