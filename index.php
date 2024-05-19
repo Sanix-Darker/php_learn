@@ -86,62 +86,76 @@ define("EXAMPLE_CONSTANT", 12);
 // echo "<br/>";
 // echo displayName("sanix", 30) == 1 ? "<br/>ooh": NULL;
 
-function print_it($callback, $args){
-    $callback($args);
-}
+// function print_it($callback, $args){
+//     $callback($args);
+// }
+//
+// // _GET
+// print_it(
+//     'print_r', # to pass a callback, it should be defined in params as string.
+//     array("_GET: " => $_GET),
+// );
+// echo "<br>";
+//
+// if (isset($_GET["ok"])){
+//     echo "<br>YOU SENT [ok]: ".$_GET["ok"]."<br>";
+// }
+//
+// // _POST
+// print_r(
+//     array("_POST: " => $_POST)
+// );
+// echo "<br>";
+//
+// // _REQUEST
+// print_r(
+//     array("_REQUEST: " => $_REQUEST)
+// );
+//
+// echo "<br>";
+// print_it(
+//     'print_r',
+//     array("_SESSION: " => $_SESSION)
+// );
+//
+// $arrbb= ["a", "aaa"];
+// array_push($arrbb, "item", "item 2");
+// echo "<br>push";
+// print_r($arrbb);
+// # and to pop
+// array_pop($arrbb);
+// echo "<br>pop";
+// print_r($arrbb);
+//
+// array_shift($arrbb);
+// echo "<br>shift";
+// print_r($arrbb);
+//
+// $arrbb = array_reverse($arrbb);
+// echo "<br>reverse";
+// print_r($arrbb);
+//
+// echo "<br>loop hashmap";
+// $hash_map = array(
+//     'x' => 12, 'y' => "DOUM", 'z' => false
+// );
+// foreach ($hash_map as $key => $value){
+//     echo "<br>".$key." ---> ".$value;
+// }
 
-// _GET
-print_it(
-    'print_r', # to pass a callback, it should be defined in params as string.
-    array("_GET: " => $_GET),
+// $exploded_arr = explode(" ", "a b c");
+// echo "<br>exploded :";
+// print_r($exploded_arr);
+// echo "<br>imploded :";
+// print_r(implode("-", $exploded_arr));
+
+// We can filter input _POST to prevent XSS injections
+$name = filter_input(
+    INPUT_POST,
+    "name",
+    FILTER_SANITIZE_SPECIAL_CHARS
 );
-echo "<br>";
-
-if (isset($_GET["ok"])){
-    echo "<br>YOU SENT [ok]: ".$_GET["ok"]."<br>";
-}
-
-// _POST
-print_r(
-    array("_POST: " => $_POST)
-);
-echo "<br>";
-
-// _REQUEST
-print_r(
-    array("_REQUEST: " => $_REQUEST)
-);
-
-echo "<br>";
-print_it(
-    'print_r',
-    array("_SESSION: " => $_SESSION)
-);
-
-$arrbb= ["a", "aaa"];
-array_push($arrbb, "item", "item 2");
-echo "<br>push";
-print_r($arrbb);
-# and to pop
-array_pop($arrbb);
-echo "<br>pop";
-print_r($arrbb);
-
-array_shift($arrbb);
-echo "<br>shift";
-print_r($arrbb);
-
-$arrbb = array_reverse($arrbb);
-echo "<br>reverse";
-print_r($arrbb);
-
-echo "<br>loop hashmap";
-$hash_map = array(
-    'x' => 12, 'y' => "DOUM", 'z' => false
-);
-foreach ($hash_map as $key => $value){
-    echo "<br>".$key." ---> ".$value;
-}
+echo $name;
 ?>
 
 <hr/>

@@ -5,7 +5,7 @@ Yeah... each statement need to end with a comma ";".... BOOOOO.
 ## DATA TYPES
 
 ```php
-<?php
+<?
 // constants
 define("EXAMPLE_CONSTANT", 12);
 
@@ -151,6 +151,17 @@ pi(23, 4, 1, 55);
 # more practical
 isset() // true if var declared and not null
 empty() // true if not declared or false or null or ""
+
+
+// We can filter input _POST to prevent XSS injections
+// the big advantages for this is to not have to use isset()
+//  each times
+$name = filter_input(
+    INPUT_POST, # this is know by php itself
+    "name",
+    FILTER_SANITIZE_SPECIAL_CHARS # this too...(there is multiple tyhpe of FILTER_... mode)
+);
+echo $name;
 ```
 
 ## FORMATING
@@ -168,11 +179,27 @@ echo "{$user} owned me \${$amount}";
 ## EXTRAS
 
 ```php
-<?php
+<?
 # or // can be used to define comments
 
 # size of a string var
-strlen(var); // to get size of a string
+strlen($var); // to get size of a string
+strtolower($var); // to lower string
+strtoupper($var); // to upper string
+trim($var); // to remove spaces surounding string
+// to add a padding of characters after the string
+str_pad($var, 10, "-"); // to lower string
+str_replace("o", "a", "Hello Warld!");
+strrev($var); // to reverse the string
+str_shuffle($var); // to shuffle characters in strings
+strcmp($var1, $var2); // to compare two strings
+
+strpos($var, "a"); // to the theindex of the first occurence of "a" in $var.
+substr($var, 10); // string substract
+substr($var, 2, 10); // string substract with a start/end indexes
+
+explode(" ", "a b c"); // like a split and return an array.
+implode("-", array("a", "b")); // like a join
 
 # pass a callback to a method (with default params)
 function print_it($callback, $args=array()){
@@ -193,7 +220,7 @@ print_it(
     <input type="checkbox" name="foods[]" />
 </form>
 <!-- in the php side -->
-<?php
+<?
 $foods = $_POST["foods"];
 # then loop on it
 foreach ($foods as $food){
