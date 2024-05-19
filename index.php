@@ -1,6 +1,9 @@
+<? session_start(); ?>
+
 <h2> HELLO BONGO !!! </h2>
 <hr/>
 <?php
+# this is also a comment
 // constant
 define("EXAMPLE_CONSTANT", 12);
 
@@ -94,6 +97,10 @@ print_it(
 );
 echo "<br>";
 
+if (isset($_GET["ok"])){
+    echo "<br>YOU SENT [ok]: ".$_GET["ok"]."<br>";
+}
+
 // _POST
 print_r(
     array("_POST: " => $_POST)
@@ -103,6 +110,12 @@ echo "<br>";
 // _REQUEST
 print_r(
     array("_REQUEST: " => $_REQUEST)
+);
+
+echo "<br>";
+print_it(
+    'print_r',
+    array("_SESSION: " => $_SESSION)
 );
 ?>
 

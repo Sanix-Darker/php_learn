@@ -1,5 +1,7 @@
 ## PHP LEARN
 
+Yeah... each statement need to end with a comma ";".... BOOOOO.
+
 ## DATA TYPES
 
 ```php
@@ -60,9 +62,10 @@ echo ($content_radian > 10) ? "is upper than 10" : "is lower than 10";
 
 Session variables :
 
-- `$_REQUEST`:
-- `$_GET`:
-- `$_POST`:
+- `$_GET`: all query params.
+- `$_POST`: all POST form params.
+- `$_REQUEST`: both.
+- `$_SESSION`: session params but needed a `session_start` to be initiated.
 
 ## LOOP
 
@@ -99,6 +102,25 @@ do {
 for ($i = 0; $i < 10 &i ++;){
     echo $i;
 }
+```
+## BUILTIN FN
+
+```php
+rand(1, 100); # for random value in that range
+# The list below is pretty obvious i guess...
+
+abs(12.3);
+floor(12.3);
+ceil(12.3);
+round(12.3);
+sqrt(9);
+pow(3, 4);
+
+max(23, 4, 1, 55);
+min(23, 4, 1, 55);
+
+pi(23, 4, 1, 55);
+
 ```
 
 ## FORMATING
