@@ -117,6 +117,31 @@ print_it(
     'print_r',
     array("_SESSION: " => $_SESSION)
 );
+
+$arrbb= ["a", "aaa"];
+array_push($arrbb, "item", "item 2");
+echo "<br>push";
+print_r($arrbb);
+# and to pop
+array_pop($arrbb);
+echo "<br>pop";
+print_r($arrbb);
+
+array_shift($arrbb);
+echo "<br>shift";
+print_r($arrbb);
+
+$arrbb = array_reverse($arrbb);
+echo "<br>reverse";
+print_r($arrbb);
+
+echo "<br>loop hashmap";
+$hash_map = array(
+    'x' => 12, 'y' => "DOUM", 'z' => false
+);
+foreach ($hash_map as $key => $value){
+    echo "<br>".$key." ---> ".$value;
+}
 ?>
 
 <hr/>

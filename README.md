@@ -18,12 +18,29 @@ $float = 12.12;
 $is_empty = NULL;
 
 $arr = array('Hello', 12, 'there', false);
+# to add values to the array (
+    - array_push($arr, "item", "item 2"); to add new items
+    - array_pop($arr); to remove the last added item
+    - array_shift($arr); to remove the first item in the array
+    - $arr = array_reverse($arr); to shift values
+    - count($arr) to count values inside the array
+)
 var_dump($arr); //to print the whole content
 
 $hash_map = array(
     'x' => 12, 'y' => 33, 'z' => $arr
 );
 var_dump($hash_map); // we can also use print_r, it's same but less infos.
+// to loop inside an hasmap (assotiative array);
+foreach ($hash_map as $key => $value){
+    echo $key." ---> ".$value
+}
+// get keys
+array_keys($hash_map);
+// get values
+array_values($hash_map);
+// we can flip keys and values too:
+$new_flipped_hashmap_arr = array_flip($hash_map);
 ```
 
 ## CONDITIONS
