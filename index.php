@@ -27,7 +27,7 @@ $user="dk";
 const pass = "this";
 echo "'{$user}' is connected with : `".pass."`";
 echo "";
-echo "\nSize of pass is : ".strlen(pass)."\n";
+echo "<br/>Size of pass is : ".strlen(pass)."<br/>";
 
 const name_r = "Hlllo";
 
@@ -40,14 +40,14 @@ switch (strlen(name_r)) {
         break;
 }
 
-echo "\n";
+echo "<br/>";
 $content_radian = 11;
 echo ($content_radian > 10) ? "is upper than 10" : "is lower than 10";
 
 //$items = ['this', 10, 'that']; // array('', ...) works too
 //
 //foreach ($items as $item){
-//    echo ">>.item: ".$item."\n";
+//    echo ">>.item: ".$item."<br/>";
 //}
 //
 //$i = 0;
@@ -57,14 +57,14 @@ echo ($content_radian > 10) ? "is upper than 10" : "is lower than 10";
 //    $i += 1;
 //}
 
-echo "\n";
+echo "<br/>";
 $i = 10;
 do {
     echo "--{$i}\t";
     $i -= 1;
 }while($i > 3);
 
-echo "\n";
+echo "<br/>";
 for ($i = 0; $i < 10; $i+=2){
     echo "+++".$i;
 }
@@ -72,10 +72,10 @@ for ($i = 0; $i < 10; $i+=2){
 // yes typing
 function displayName(string $name, int $age): int {
     echo "Hello there !";
-    echo "\n{$name} is {$age} year old !";
+    echo "<br/>{$name} is {$age} year old !";
     return 1;
 }
 
-echo "\n";
-echo displayName("sanix", 30) == 1 ? "\nooh": NULL;
+echo "<br/>";
+echo displayName("sanix", 30) == 1 ? "<br/>ooh": NULL;
 ?>
