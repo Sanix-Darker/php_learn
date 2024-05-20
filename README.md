@@ -2,6 +2,17 @@
 
 Yeah... each statement need to end with a comma ";".... BOOOOO.
 
+## PRINTERS
+
+```php
+<?
+echo "ok", 12# can take multiple items, but only print item that can converted to string
+print "Hello";# only one item
+print("Hello");# only one item
+
+var_export("something");
+```
+
 ## DATA TYPES
 
 ```php
@@ -20,11 +31,25 @@ $is_empty = NULL;
 
 $arr = array('Hello', 12, 'there', false);
 # to add values to the array (
-    - array_push($arr, "item", "item 2"); to add new items
-    - array_pop($arr); to remove the last added item
-    - array_shift($arr); to remove the first item in the array
-    - $arr = array_reverse($arr); to shift values
-    - count($arr) to count values inside the array
+    - array_push($arr, "item", "item 2"); # to add new items
+    - in_array($var, "value"); # to check if a value is in array
+    - array_map(function($val) { return "this" }) # apply a method to all items in the arr.
+       >$arr_val = ["hello", "this", "and", "that"];
+       >$arr_val_Upper = array_map(function($val) {
+       >    return strtoupper($val);
+       >}, $arr_val);
+       >print_r($arr_val_Upper);
+    - array_filter($values, fn($nn) => ..)
+    - array_pop($arr); # to remove the last added item
+    - array_shift($arr); # to remove the first item in the array
+    - array_unshift($arr, "prev_value"); # to preppend the array with a new value.
+    - unset($arr[3]); # to remove the item [3] from the array.
+    - array_chunk($arr, 3); # to split an array into multiple small chunks
+    - $arr = array_reverse($arr); # to shift values
+    - count($arr); # to count values inside the array
+    - # to merge two arrays:
+        - array_merge($arr1, $arr2);
+        - [...$arr0, ...$arr2];
 )
 var_dump($arr); //to print the whole content
 
@@ -42,6 +67,14 @@ array_keys($hash_map);
 array_values($hash_map);
 // we can flip keys and values too:
 $new_flipped_hashmap_arr = array_flip($hash_map);
+
+// To combine two arrays in a way we have keys -> values
+// we could use array_combine();
+$final_hash_map = array_combine($arr_keys, $arr_values);
+// we can define ranges like in python
+$range_10 = range(10);
+
+// Resources Data type (holds a resources).
 ?>
 ```
 
@@ -51,6 +84,12 @@ $new_flipped_hashmap_arr = array_flip($hash_map);
 
 ```php
 <?
+// Note:
+// == Equal to
+// === Identical to
+
+// != Not Equal to
+// !== Not Identical to
 if ($user == "this" AND $pass == "xxx") { // AND (&&) | OR (||)
     echo "this";
  }else{
@@ -78,6 +117,9 @@ switch (strlen(name_r)) {
 ```php
 <?
 echo ($content_radian > 10) ? "is upper than 10" : "is lower than 10";
+
+// Usefull to check the variable and the ternary evaluation directly.
+echo $post[0] ?? "NULL";
 ```
 
 ## SESSION VARIABLES
@@ -152,9 +194,11 @@ min(23, 4, 1, 55);
 pi(23, 4, 1, 55);
 
 # more practical
-isset() // true if var declared and not null
-empty() // true if not declared or false or null or ""
+isset(); // true if var declared and not null
+empty(); // true if not declared or false or null or ""
 
+# date
+echo date("H");
 
 // We can filter input _POST to prevent XSS injections
 // the big advantages for this is to not have to use isset()
@@ -165,6 +209,9 @@ $name = filter_input(
     FILTER_SANITIZE_SPECIAL_CHARS # this too...(there is multiple tyhpe of FILTER_... mode)
 );
 echo $name;
+
+// manipulating data
+echo var_dump(json_encode($val));
 ```
 
 ## FORMATING
@@ -207,6 +254,11 @@ substr($var, 2, 10); // string substract with a start/end indexes
 explode(" ", "a b c"); // like a split and return an array.
 implode("-", array("a", "b")); // like a join
 
+# hashs method
+$hh = password_hash("value", PASSWORD_DEFAULT);
+# and to check/verify
+password_verify("value", $the_hash_version);
+
 # pass a callback to a method (with default params)
 function print_it($callback, $args=array()){
     $callback($args);
@@ -241,4 +293,24 @@ setcookie("this", "that", time() + 100, "/path/to");
 
 // session
 // same principle for $_SESSION["values"]
+
+# to get the curret php file
+echo $_SERVER["PHP_SELF"];
+// the request method made
+echo $_SERVER["REQUEST_METHOD"]; # "POST", "GET"
+
+// globals var used in method context.
+$this_is_global = 1;
+function custom_fn(){
+    global $this_is_global;
+    echo $this_is_global;
+}
+custom_fn();
+
+// arrow function
+// anonymous function assign to variable
+$arrow_fn = fn (int $a, string $b) : int => {
+    return strlen($b) + $a;
+};
+echo $arrow_fn(12, "this is a test");
 ```

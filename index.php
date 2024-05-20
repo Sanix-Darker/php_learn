@@ -150,12 +150,86 @@ define("EXAMPLE_CONSTANT", 12);
 // print_r(implode("-", $exploded_arr));
 
 // We can filter input _POST to prevent XSS injections
-$name = filter_input(
-    INPUT_POST,
-    "name",
-    FILTER_SANITIZE_SPECIAL_CHARS
-);
-echo $name;
+//$name = filter_input(
+//    INPUT_POST,
+//    "name",
+//    FILTER_SANITIZE_SPECIAL_CHARS
+//);
+//echo $name;
+
+// echo $_SERVER["PHP_SELF"];
+// it use bcrypt
+// $hh =  password_hash("value", PASSWORD_DEFAULT);
+// echo "<br>hash: ".$hh;
+//
+// // 1 if ok
+// // '' if not
+// $verified = password_verify("value", $hh);
+// echo "<br>verified: ".$verified;
+
+// echo "ok", 12; # can take multiple items, but only print item that can converted to string
+// echo "<br>";
+// print "Hello"; # only one item
+// echo "<br>";
+// print("Hello"); # only one item
+//
+// echo "<br>";
+// echo var_export("something");
+// echo "<br>";
+// echo var_export(["something"]);
+//
+// echo "<br>";
+// $val = ["a" => 1];
+// echo json_encode($val);
+//
+// echo date("H");
+//
+// $post = [];
+// echo $post[0] ?? "NULL";
+
+// globals
+// $this_is_global = 1;
+// function custom_fn(){
+//     global $this_is_global;
+//     echo $this_is_global;
+// }
+// custom_fn();
+
+// arrow function
+// anonymous function assign to variable
+// $arrow_fn = function(int $a, string $b) : int {
+//     return strlen($b) + $a;
+// };
+// echo $arrow_fn(12, "this is a test");
+// $arr_keys = ['a', 'c', 'i', 'd'];
+// $arr_values = ['atomicity', 'consistency', 'isolation', 'durability'];
+// $final_hash_map = array_combine($arr_keys, $arr_values);
+// print_r($final_hash_map);
+
+// function custom_range(
+//     int $start_index,
+//     int $end_index = NULL,
+//     float $step = NULL,
+// ): array {
+//     return $end_index != NULL ? range(
+//             $start_index,
+//             $end_index,
+//             $step ?? 1
+//         ) : range(0, $start_index, $step ?? 1);
+// };
+//
+// var_dump(range(0, 10));
+// echo "<br>";
+// var_dump(custom_range(10));
+// echo "<br>";
+// var_dump(custom_range(0, 10));
+
+// Array map
+$arr_val = ["hello", "this", "and", "that"];
+$arr_val_Upper = array_map(function($val) {
+    return strtoupper($val);
+}, $arr_val);
+print_r($arr_val_Upper);
 ?>
 
 <hr/>
