@@ -225,21 +225,22 @@ define("EXAMPLE_CONSTANT", 12);
 // var_dump(custom_range(0, 10));
 
 // Array map
-$arr_val = ["hello", "this", "and", "that"];
-$arr_val_Upper = array_map(function($val) {
-    return strtoupper($val);
-}, $arr_val);
-print_r($arr_val_Upper);
+// $arr_val = ["hello", "this", "and", "that"];
+// $arr_val_Upper = array_map(function($val) {
+//     return strtoupper($val);
+// }, $arr_val);
+// print_r($arr_val_Upper);
+//
+// echo "<br>";
+// // Iterativelly call an item with a callable.
+// print_r(
+//     array_reduce(["this", "and", "that"], function($a, $b) {
+//         return "{$a} - {$b}";
+//     })
+// );
+// echo "<br>";
+// printf("%s is %d years old and has $%f", "sanix", 20, 12);
 
-echo "<br>";
-// Iterativelly call an item with a callable.
-print_r(
-    array_reduce(["this", "and", "that"], function($a, $b) {
-        return "{$a} - {$b}";
-    })
-);
-echo "<br>";
-printf("%s is %d years old and has $%f", "sanix", 20, 12);
 ?>
 
 <hr/>
