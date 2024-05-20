@@ -34,12 +34,18 @@ $arr = array('Hello', 12, 'there', false);
     - array_push($arr, "item", "item 2"); # to add new items
     - in_array($var, "value"); # to check if a value is in array
     - array_map(function($val) { return "this" }) # apply a method to all items in the arr.
-       >$arr_val = ["hello", "this", "and", "that"];
-       >$arr_val_Upper = array_map(function($val) {
-       >    return strtoupper($val);
-       >}, $arr_val);
-       >print_r($arr_val_Upper);
-    - array_filter($values, fn($nn) => ..)
+       > $arr_val = ["hello", "this", "and", "that"];
+       > $arr_val_Upper = array_map(function($val) {
+       >     return strtoupper($val);
+       > }, $arr_val);
+       > print_r($arr_val_Upper);
+    - array_filter($values, fn($nn) => return $condition); # to filter values based on a condition
+    - array_reduce()
+       > print_r(
+       >     array_reduce(["this", "and", "that"], function($a, $b) {
+       >         return "{$a} - {$b}";
+       >     })
+       > );
     - array_pop($arr); # to remove the last added item
     - array_shift($arr); # to remove the first item in the array
     - array_unshift($arr, "prev_value"); # to preppend the array with a new value.
@@ -127,9 +133,12 @@ echo $post[0] ?? "NULL";
 Global Session variables :
 
 - `$_GET`: all query params.
+- `$_ENV`: for env vars.
+- `$_FILES`: contains infos about files uploaded.
 - `$_POST`: all POST form params.
 - `$_REQUEST`: both.
 - `$_SESSION`: session params but needed a `session_start` to be initiated.
+    NOTE: to kill a session, it's `session_destroy();`
 - `$_COOKIES`: cookies values.
 - `$_SERVER`: entries created by the webserver.
 
@@ -212,6 +221,10 @@ echo $name;
 
 // manipulating data
 echo var_dump(json_encode($val));
+
+// htmlspecialchars
+// to prevent also xss injections
+echo htmlspecialchars($tring);
 ```
 
 ## FORMATING
@@ -224,6 +237,9 @@ echo "{$user} is connected !";
 $amount = 20.23;
 // we can also escape characters.
 echo "{$user} owned me \${$amount}";
+
+// formating in a C way
+printf("%s is %d years old and has $%f", "sanix", 20, 12);
 ```
 
 ## EXTRAS
@@ -250,6 +266,11 @@ strcmp($var1, $var2); // to compare two strings
 strpos($var, "a"); // to the theindex of the first occurence of "a" in $var.
 substr($var, 10); // string substract
 substr($var, 2, 10); // string substract with a start/end indexes
+
+ucwords($string); // upper each first character for each words.
+
+str_start_with("value", "v"); // check if a string start with something specific.
+str_end_with(); // same loggic but with end.
 
 explode(" ", "a b c"); // like a split and return an array.
 implode("-", array("a", "b")); // like a join
