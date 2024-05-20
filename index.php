@@ -241,21 +241,68 @@ define("EXAMPLE_CONSTANT", 12);
 // echo "<br>";
 // printf("%s is %d years old and has $%f", "sanix", 20, 12);
 
-function inverse(int $val): float{
-    if (!$val){
-        throw new Exception('val need to be set');
+// function inverse(int $val): float{
+//     if (!$val){
+//         throw new Exception('val need to be set');
+//     }
+//     return 1/$val;
+// }
+// try{
+//     echo inverse(3);
+//     echo "<br>";
+//     echo inverse(0);
+// }catch(Exception $e){
+//     echo "Caught... this and that. {$e}";
+// }finally{
+//     echo "always executed.";
+// }
+
+class User{
+    public string $name;
+    public int $age;
+    public bool $gender; //true M, false F
+
+    public string $email; // Can not be access from outside
+
+    private $account;
+    protected $bank_amount;
+
+    public function __construct(string $name, int $age, bool $gender, string $email){
+        $this->name = $name;
+        $this->age = $age;
+        $this->gender = $gender;
+        $this->email = $email;
     }
-    return 1/$val;
+
+    public function get_email(): string {
+        return $this->email;
+    }
+
+    public function set_email(string $given_email): void{
+        $this->email = $given_email;
+    }
 }
-try{
-    echo inverse(3);
-    echo "<br>";
-    echo inverse(0);
-}catch(Exception $e){
-    echo "Caught... this and that. {$e}";
-}finally{
-    echo "always executed.";
+
+$usr = new User("dk", 20, true, "a@b.c");
+echo $usr->get_email();
+// inheritence
+//
+class Employee extends User {
+    public mixed $custom;
+
+    public function __construct(string $name, int $age, bool $gender, string $email, mixed $custom){
+        parent::__construct($name, $age, $gender, $email);
+        // new props
+        $this->custom = $custom;
+    }
+
+    public function get_custom(): mixed{
+        return $this->custom;
+    }
 }
+$eee = new Employee("sk", 34, false, "t@b.c", ["a", "b"]);
+echo "<br>";
+print_r($eee->get_custom());
 ?>
 
 <hr/>
