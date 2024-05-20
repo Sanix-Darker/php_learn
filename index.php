@@ -241,6 +241,21 @@ define("EXAMPLE_CONSTANT", 12);
 // echo "<br>";
 // printf("%s is %d years old and has $%f", "sanix", 20, 12);
 
+function inverse(int $val): float{
+    if (!$val){
+        throw new Exception('val need to be set');
+    }
+    return 1/$val;
+}
+try{
+    echo inverse(3);
+    echo "<br>";
+    echo inverse(0);
+}catch(Exception $e){
+    echo "Caught... this and that. {$e}";
+}finally{
+    echo "always executed.";
+}
 ?>
 
 <hr/>

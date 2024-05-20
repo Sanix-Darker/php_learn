@@ -242,6 +242,50 @@ echo "{$user} owned me \${$amount}";
 printf("%s is %d years old and has $%f", "sanix", 20, 12);
 ```
 
+## FILE HANDLING
+
+```php
+<?
+$file = "path.txt"
+
+if (file_exists($file)){
+    $handle = fopen($file, 'r');
+    $contents = fread($handle, filesize($file));
+    fclose($handle);
+
+    echo $contents;
+}else{
+    $handle = fopen($file, 'w');
+    fwrite($handle, $contents);
+    fclose($handle);
+}
+```
+
+## EXCEPTION
+
+```php
+<?
+
+function inverse(int $val): float{
+    if (!$val){
+        throw new Exception('val need to be set');
+    }
+    return 1/$val;
+}
+
+try{
+    echo inverse(3);
+    echo "<br>";
+    echo inverse(0);
+}catch(Exception $e){
+    echo "Caught... this and that. {$e}";
+}finally{
+    echo "always executed.";
+}
+```
+
+## OOP
+
 ## EXTRAS
 
 ```php
