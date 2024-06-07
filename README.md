@@ -8,7 +8,9 @@ Yeah... each statement need to end with a comma ";".... BOOOOO.
 
 [CHECK THE INTERACTIVE MAP](https://sanix-darker.github.io/php_learn/php.html)
 
-## PRINTERS
+## CONCEPTS
+
+### PRINTERS
 
 ```php
 <?
@@ -19,7 +21,7 @@ print("Hello");# only one item
 var_export("something");
 ```
 
-## DATA TYPES
+### DATA TYPES
 
 ```php
 <?
@@ -90,7 +92,7 @@ $range_10 = range(10);
 ?>
 ```
 
-## CONDITIONS
+### CONDITIONS
 
 - if / else:
 
@@ -134,7 +136,7 @@ echo ($content_radian > 10) ? "is upper than 10" : "is lower than 10";
 echo $post[0] ?? "NULL";
 ```
 
-## SESSION VARIABLES
+### SESSION VARIABLES
 
 Global Session variables :
 
@@ -149,7 +151,7 @@ Global Session variables :
 - `$_SERVER`: entries created by the webserver.
 
 
-## LOOP
+### LOOP
 
 - foreach
 ```php
@@ -233,7 +235,7 @@ echo var_dump(json_encode($val));
 echo htmlspecialchars($tring);
 ```
 
-## FORMATING
+### FORMATING
 
 ```php
 <?
@@ -248,7 +250,7 @@ echo "{$user} owned me \${$amount}";
 printf("%s is %d years old and has $%f", "sanix", 20, 12);
 ```
 
-## FILE HANDLING
+### FILE HANDLING
 
 ```php
 <?
@@ -267,7 +269,7 @@ if (file_exists($file)){
 }
 ```
 
-## EXCEPTION
+### EXCEPTION
 
 ```php
 <?
@@ -290,7 +292,7 @@ try{
 }
 ```
 
-## OOP
+### OOP
 ```php
 <?
 class User{
@@ -341,7 +343,7 @@ echo "<br>";
 print_r($eee->get_custom());
 ```
 
-## EXTRAS
+### EXTRAS
 
 ```php
 <?
